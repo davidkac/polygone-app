@@ -94,7 +94,7 @@ const Polygon = () => {
   // Change polygon size based on user input
   let sizeValueHandler = (value) => {
     // Validate user input
-    if (value >= 26 || value <= 3) {
+    if (value > 26 || value < 3) {
       alert("Please enter a number between 3 and 26!");
       return;
     }
