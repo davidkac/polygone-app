@@ -17,14 +17,13 @@ const Polygon = () => {
   const [point, setPoint] = useState([inputValue.x, inputValue.y]);
 
   // Polygon variables
-  const [sides, setSides] = useState(3);
+  const [sides, setSides] = useState(6);
   const canvasRef = useRef(null);
   let vertices = [];
 
   useEffect(() => {
     drawCanvas();
     setIsInside(isPointInPolygon(point, vertices));
-    console.log("Tacka je u poligonu?", isInside);
   }, [point, sides]);
 
   // Draw polygon method
@@ -59,12 +58,17 @@ const Polygon = () => {
     ctx.stroke();
   };
 
-  // Check if point is in Polygon using Ray casting method
+  /* Check if point is in Polygon using Rai Casting Method:
+  The function uses the line intersection counting algorithm to determine whether a point is inside a polygon. 
+  It does this by calculating the intersection of each polygon line (between two adjacent points) 
+  with a horizontal line passing through the "point". If there is an odd number of intersections, 
+  it means that the point is inside the polygon. */
 
   let isPointInPolygon = (point, polygon) => {
     const x = point[0],      
       y = point[1];
     let inside = false;
+    
     for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
       const xi = polygon[i][0],
         yi = polygon[i][1];
@@ -118,15 +122,14 @@ const Polygon = () => {
             onChange={(event) => inputValueHandler(event.target.value, "y")}
           ></input>
           <small>
-            Note: X, Y coord should be in range of 0-400 in order for point to
-            be visible on screen.
+            Note: X, Y coords should be in range of 0-400 in order for point to be visible on screen.
           </small>
           <h5 className={isInside ?  classes.success : classes.warning}>
-            {"Tacka" + (isInside ? " je  " : " nije ") + "u poligonu!"}
+            {"Point" + (isInside ? " is  " : " is not ") + "in polygon!"}
           </h5>
         </label>
         <label>
-          <span>Number of sides:</span>
+          <span>Number of polygon sides:</span>
           <input
             type="number"
             min="3"
