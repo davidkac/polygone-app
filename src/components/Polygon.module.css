@@ -1,0 +1,46 @@
+.wrapper {
+    margin: 2rem;
+    margin: 2rem;
+    background: #f1f1f1;
+    padding: 1rem;
+    border: 1px solid #dadada;
+    border-radius: 10px;
+    color: gray;
+    font-size: 1rem;
+  }
+  span {
+    padding: 1rem;
+  }
+  small{
+    color: #aeadad;
+      font-size: 11px;
+      width: 100%;
+      display: block;
+  }
+  input {
+    margin: 5px;
+    max-width: 3rem;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    color: lightslategrey;
+    text-align: center;
+  }
+  .canvasWrapper {
+    text-align: center;
+  }
+  .warning {
+    color: darkred;
+    background: #ffdada;
+    padding: 1rem;
+    border: 1px solid #c29191;
+    border-radius: 10px;
+  }
+  .success {
+    color: darkgreen;
+    background: #daffda;
+    padding: 1rem;
+    border: 1px solid #91c291;
+    border-radius: 10px;
+  }
+  
